@@ -1,0 +1,4 @@
+.gitignore
+.prettierignore
+*.yml
+**/.DS_Store
