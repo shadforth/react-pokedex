@@ -14,7 +14,7 @@ const Wrapper = styled.header`
 const Header = (): ReactElement => {
   return (
     <Wrapper>
-      <Title>React Pokédex</Title>
+      <Title>Pokédex</Title>
     </Wrapper>
   );
 };

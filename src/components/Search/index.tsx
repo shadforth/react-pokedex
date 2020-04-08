@@ -1,3 +1,4 @@
 import Search from "./Search";
+import useSearchFilter from "./useSearchFilter";
 
-export default Search;
+export { Search, useSearchFilter };

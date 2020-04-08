@@ -1,16 +1,14 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import styled from "styled-components";
-
-const Wrapper = styled.div`
-  margin: ${({ theme }) => theme.spacing.medium} 0;
-`;
+import ALL_POKEMON from "../../data/pokemon.json";
 
 const SearchBar = styled.input`
+  margin: ${({ theme }) => theme.spacing.medium} 0;
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   border: none;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: ${({ theme }) => theme.spacing.medium};
   font-size: 1rem;
   font-family: "Nunito", "Droid Sans", "Helvetica Neue", sans-serif;
@@ -19,10 +17,24 @@ const SearchBar = styled.input`
 `;
 
 const Search = (): ReactElement => {
+  const [query, setQuery] = useState("");
+  const [items, setItems] = useState(ALL_POKEMON);
+
+  const filterItems = ({ searchParam }: { searchParam: string }) => {
+    setItems(
+      ALL_POKEMON.filter(pokemon =>
+        pokemon.name.toLowerCase().includes(searchParam.toLowerCase())
+      )
+    );
+  };
+
   return (
-    <Wrapper>
-      <SearchBar />
-    </Wrapper>
+    <SearchBar
+      onChange={e => {
+        console.log(e.target.value);
+        setQuery(e.target.value);
+      }}
+    />
   );
 };
 
