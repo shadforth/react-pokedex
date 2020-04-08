@@ -1,13 +1,9 @@
 #!/bin/bash -e
 
-# Change to project directory
 cd "$(dirname "$0")/.."
 
-# Spin down all containers on exit code 0
 trap "docker-compose down" 0
 
-# Build image
 docker-compose build
 
-# Run the application
-docker-compose run --service-ports --rm app "${@-bash}"
+docker-compose run --service-ports --rm react-pokedex "${@-bash}"
