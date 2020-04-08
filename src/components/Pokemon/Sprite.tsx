@@ -6,7 +6,7 @@ const SpriteContainer = styled.div`
   text-align: center;
 `;
 
-const Sprite = ({ pokemon }: { pokemon: PokemonInterface }) => {
+const Sprite = ({ pokemon }: { pokemon: PokemonInterface }): ReactElement => {
   return (
     <SpriteContainer>
       <img src={`/sprites/${pokemon.id}.png`} alt={pokemon.name} />

@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
 import styled from "styled-components";
-import PokemonInterface from "../Pokemon/PokemonInterface";
+import { PokemonInterface } from "../Pokemon";
 import { Sprite } from "../Pokemon";
 import Type from "../Type";
 
@@ -40,19 +40,19 @@ const ModalBox = styled.div`
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   margin: 0;
-  border-radius: 3px;
+  border-radius: 2px;
   padding: ${({ theme }) => theme.spacing.medium};
   background: ${({ theme }) => theme.color.white};
   z-index: 100;
 `;
 
-const Button = styled.button`
+const ModalExitButton = styled.button`
   margin-left: 0.5rem;
   border: none;
-  border-radius: 3px;
   font-size: 1rem;
   font-weight: 700;
   float: right;
+  cursor: pointer;
 `;
 
 const Information = styled.div`
@@ -119,7 +119,7 @@ const Modal = ({
           <Overlay />
           <Wrapper>
             <ModalBox>
-              <Button onClick={hide}>&times;</Button>
+              <ModalExitButton onClick={hide}>&times;</ModalExitButton>
               <Information>
                 <Name>{pokemon.name}</Name>
                 <Type types={pokemon.types} />

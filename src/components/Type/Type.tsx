@@ -8,7 +8,7 @@ const Box = styled.div`
     `${theme.spacing.extraSmall} ${theme.spacing.extraSmall} ${theme.spacing.extraSmall} 0`};
   padding: ${({ theme }) =>
     `6px ${theme.spacing.small} ${theme.spacing.extraSmall}`};
-  border-radius: 3px;
+  border-radius: 2px;
   text-transform: uppercase;
   font-size: 0.8rem;
   font-weight: 400;

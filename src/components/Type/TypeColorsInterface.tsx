@@ -1,5 +1,3 @@
-interface TypeColorsInterface {
+export default interface TypeColorsInterface {
   [key: string]: string;
 }
-
-export default TypeColorsInterface;

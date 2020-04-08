@@ -1,4 +1,4 @@
-interface PokemonInterface {
+export default interface PokemonInterface {
   id: string;
   name: string;
   generation: string;
@@ -29,5 +29,3 @@ interface PokemonInterface {
   max_cp: number;
   max_hp: number;
 }
-
-export default PokemonInterface;

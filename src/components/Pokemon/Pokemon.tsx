@@ -9,7 +9,7 @@ import { Modal, useModal } from "../Modal";
 const Container = styled.div`
   width: 49%;
   margin-bottom: ${({ theme }) => theme.spacing.medium};
-  border-radius: 5px;
+  border-radius: 2px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   padding: ${({ theme }) =>
     `${theme.spacing.medium} ${theme.spacing.medium} ${theme.spacing.large}`};
@@ -33,7 +33,8 @@ const Center = styled.div`
   text-align: center;
 `;
 
-const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }): ReactElement => {
+// TODO: Change any to what it actually is
+const Pokemon = ({ pokemon }: { pokemon: any }): ReactElement => {
   const { isShowing, toggle } = useModal();
 
   return (
