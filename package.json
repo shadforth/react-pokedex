@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -38,6 +39,7 @@
     "react-dom": "^16.13.1",
     "react-scripts": "3.4.1",
     "react-window": "^1.8.5",
+    "source-map-explorer": "^2.4.2",
     "styled-components": "^5.0.1",
     "typescript": "^3.8.3",
     "webfontloader": "^1.6.28"
