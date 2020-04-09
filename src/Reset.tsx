@@ -33,6 +33,8 @@ export default createGlobalStyle`
   }
   body {
     line-height: 1;
+    min-height: 100vh;
+    background: #f6f7fc;
   }
   ol, ul {
     list-style: none;

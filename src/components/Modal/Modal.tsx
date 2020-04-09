@@ -95,7 +95,7 @@ const Statistic = ({
   statistic,
 }: {
   title: string;
-  statistic: string;
+  statistic?: string;
 }) => {
   return (
     <StatisticContainer>
@@ -106,11 +106,11 @@ const Statistic = ({
 
 const Modal = ({
   isShowing,
-  hide,
+  toggle,
   pokemon,
 }: {
   isShowing: boolean;
-  hide: any;
+  toggle: any;
   pokemon: PokemonInterface;
 }) =>
   isShowing
@@ -119,15 +119,21 @@ const Modal = ({
           <Overlay />
           <Wrapper>
             <ModalBox>
-              <ModalExitButton onClick={hide}>&times;</ModalExitButton>
+              <ModalExitButton onClick={toggle}>&times;</ModalExitButton>
               <Information>
                 <Name>{pokemon.name}</Name>
                 <Type types={pokemon.types} />
                 <Sprite pokemon={pokemon} />
                 <Description>{pokemon.description}</Description>
                 <Divider />
-                <Statistic title="Height" statistic={pokemon.height.maximum} />
-                <Statistic title="Weight" statistic={pokemon.weight.maximum} />
+                <Statistic
+                  title="Height"
+                  statistic={pokemon?.height?.maximum}
+                />
+                <Statistic
+                  title="Weight"
+                  statistic={pokemon?.weight?.maximum}
+                />
                 <Statistic title="Attack" statistic={pokemon.base_attack} />
                 <Statistic title="Defense" statistic={pokemon.base_defense} />
                 <Statistic title="Generation" statistic={pokemon.generation} />

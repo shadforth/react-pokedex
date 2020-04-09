@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react";
+import React, { Fragment, ReactElement } from "react";
 import styled from "styled-components";
 import PokemonInterface from "./PokemonInterface";
 import Sprite from "./Sprite";
@@ -6,9 +6,10 @@ import Type from "../Type";
 
 import { Modal, useModal } from "../Modal";
 
-const Container = styled.div`
+const Container = styled.button`
   width: 49%;
   margin-bottom: ${({ theme }) => theme.spacing.medium};
+  border: none;
   border-radius: 2px;
   box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   padding: ${({ theme }) =>
@@ -16,11 +17,20 @@ const Container = styled.div`
   box-sizing: border-box;
   background: ${({ theme }) => theme.color.white};
   cursor: pointer;
+  transition: all 0.2s linear;
+  :hover {
+    background: ${({ theme }) => theme.color.offWhite};
+  }
+  font-family: "Nunito", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 `;
 
 const Number = styled.span`
+  float: left;
   color: ${({ theme }) => theme.color.grey};
   font-weight: bold;
+  font-size: 1rem;
 `;
 
 const Name = styled.h2`
@@ -33,20 +43,21 @@ const Center = styled.div`
   text-align: center;
 `;
 
-// TODO: Change any to what it actually is
-const Pokemon = ({ pokemon }: { pokemon: any }): ReactElement => {
+const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }): ReactElement => {
   const { isShowing, toggle } = useModal();
 
   return (
-    <Container onClick={toggle}>
-      <Number>{`#${pokemon.id}`}</Number>
-      <Sprite pokemon={pokemon} />
-      <Name>{pokemon.name}</Name>
-      <Center>
-        <Type types={pokemon.types} />
-      </Center>
-      <Modal isShowing={isShowing} hide={toggle} pokemon={pokemon} />
-    </Container>
+    <Fragment>
+      <Modal isShowing={isShowing} toggle={toggle} pokemon={pokemon} />
+      <Container onClick={toggle}>
+        <Number>{`#${pokemon.id}`}</Number>
+        <Sprite pokemon={pokemon} />
+        <Name>{pokemon.name}</Name>
+        <Center>
+          <Type types={pokemon.types} />
+        </Center>
+      </Container>
+    </Fragment>
   );
 };
 

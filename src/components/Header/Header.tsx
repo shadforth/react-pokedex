@@ -7,16 +7,8 @@ const Title = styled.h1`
   font-weight: bold;
 `;
 
-const Wrapper = styled.header`
-  padding: ${({ theme }) => `${theme.spacing.large} 0 ${theme.spacing.medium}`};
-`;
-
 const Header = (): ReactElement => {
-  return (
-    <Wrapper>
-      <Title>Pokédex</Title>
-    </Wrapper>
-  );
+  return <Title>Pokédex</Title>;
 };
 
 export default Header;
