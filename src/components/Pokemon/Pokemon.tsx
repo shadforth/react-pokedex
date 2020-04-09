@@ -26,8 +26,8 @@ const Container = styled.button`
   -moz-osx-font-smoothing: grayscale;
 `;
 
-const Number = styled.span`
-  float: left;
+const Number = styled.div`
+  text-align: left;
   color: ${({ theme }) => theme.color.grey};
   font-weight: bold;
   font-size: 1rem;
