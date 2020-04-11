@@ -1,9 +1,10 @@
-import React, { ReactElement, useEffect, useState } from "react";
+import React, { ReactElement } from "react";
 import styled from "styled-components";
+import useSearchFilter from "../../hooks/useSearchFilter";
 import { FixedSizeGrid } from "react-window";
 import { Pokemon } from "../Pokemon";
 
-import pokemonArray from "../../data/pokemon.json";
+import pokemon from "../../data/pokemon.json";
 
 const Pokedex = styled.div``;
 
@@ -25,7 +26,8 @@ const PokemonContainer = styled.div`
 
 const SearchBarContainer = styled.div`
   display: flex;
-  margin: ${({ theme }) => `${theme.spacing.medium} 0`};
+  margin: ${({ theme }) =>
+    `${theme.spacing.medium} 13px ${theme.spacing.medium} 0`};
   padding: ${({ theme }) =>
     `${theme.spacing.medium} ${theme.spacing.medium} 8px`};
   box-sizing: border-box;
@@ -55,37 +57,26 @@ const SearchBar = styled.input`
 
 const Row = ({ data, columnIndex, rowIndex, style }) => {
   return (
-    <div style={style}>
+    <div style={{ ...style, overflowX: "hidden" }}>
       <Pokemon
-        pokemon={data[columnIndex == 0 ? rowIndex * 2 : rowIndex * 2 + 1]}
+        pokemon={data[columnIndex === 0 ? rowIndex * 2 : rowIndex * 2 + 1]}
       />
     </div>
   );
 };
 
+const rowCount = items => {
+  return Math.ceil(items.length / 2);
+};
+
 const Display = (): ReactElement => {
-  const [query, setQuery] = useState("");
-  const [items, setItems] = useState(pokemonArray);
-
-  useEffect(() => {
-    const filterItems = searchParam => {
-      if (!searchParam) {
-        setItems(pokemonArray);
-      }
-      const filtered = pokemonArray.filter(pokemon =>
-        pokemon.name.toLowerCase().includes(searchParam.toLowerCase())
-      );
-      setItems(filtered);
-    };
-    filterItems(query);
-  }, [query]);
-
+  const [items, filterItems] = useSearchFilter(pokemon);
   return (
     <Pokedex>
       <SearchBarContainer>
         <SearchBar
           onChange={e => {
-            setQuery(e.target.value);
+            filterItems(e.target.value);
           }}
           placeholder="Search for a Pokémon..."
         />
@@ -93,12 +84,12 @@ const Display = (): ReactElement => {
       <PokemonContainer>
         <FixedSizeGrid
           columnCount={2}
-          columnWidth={370}
+          columnWidth={360}
           height={800}
-          rowCount={126}
+          rowCount={rowCount(items)}
           rowHeight={270}
-          width={820}
-          itemData={pokemonArray}
+          width={800}
+          itemData={items}
         >
           {Row}
         </FixedSizeGrid>

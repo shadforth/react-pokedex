@@ -44,19 +44,23 @@ const Center = styled.div`
 const Pokemon = ({ pokemon }: { pokemon: PokemonInterface }): ReactElement => {
   const { isShowing, toggle } = useModal();
 
-  return (
-    <Fragment>
-      <Modal isShowing={isShowing} toggle={toggle} pokemon={pokemon} />
-      <Container onClick={toggle}>
-        <Number>{`#${pokemon.id}`}</Number>
-        <Sprite pokemon={pokemon} />
-        <Name>{pokemon.name}</Name>
-        <Center>
-          <Type types={pokemon.types} />
-        </Center>
-      </Container>
-    </Fragment>
-  );
+  if (pokemon) {
+    return (
+      <Fragment>
+        <Modal isShowing={isShowing} toggle={toggle} pokemon={pokemon} />
+        <Container onClick={toggle}>
+          <Number>{`#${pokemon.id ? pokemon.id : ``}`}</Number>
+          <Sprite pokemon={pokemon} />
+          <Name>{pokemon.name}</Name>
+          <Center>
+            <Type types={pokemon.types} />
+          </Center>
+        </Container>
+      </Fragment>
+    );
+  }
+
+  return <Fragment></Fragment>;
 };
 
 export default Pokemon;
