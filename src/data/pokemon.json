@@ -9305,8 +9305,7 @@
     "base_attack": "210",
     "base_defense": "210",
     "base_flee_rate": "10",
-    "pokemon_class": "This is a MYTHIC Pokémon.",
-    "mythic": "Pokémon Class",
+    "pokemon_class": "This is a mythic Pokémon.",
     "max_cp": 3087,
     "max_hp": 3299
   },
@@ -13791,7 +13790,7 @@
       "minimum": "3.8m",
       "maximum": "3.8m"
     },
-    "max_hp": "106",
+    "max_hp": 106,
     "base_attack": "130",
     "base_defense": "90"
   },
@@ -13837,7 +13836,6 @@
     "base_attack": "210",
     "base_defense": "210",
     "base_flee_rate": "5",
-    "pokemon_class": "This is a mythic Pokémon.",
-    "mythic": "Pokémon Class"
+    "pokemon_class": "This is a mythic Pokémon."
   }
 ]
