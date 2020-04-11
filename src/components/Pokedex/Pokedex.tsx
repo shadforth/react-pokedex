@@ -1,8 +1,9 @@
 import React, { ReactElement, useEffect, useState } from "react";
 import styled from "styled-components";
+import { FixedSizeGrid } from "react-window";
 import { Pokemon } from "../Pokemon";
 
-import ALL_POKEMON from "../../data/pokemon.json";
+import pokemonArray from "../../data/pokemon.json";
 
 const Pokedex = styled.div``;
 
@@ -28,7 +29,6 @@ const SearchBarContainer = styled.div`
   padding: ${({ theme }) =>
     `${theme.spacing.medium} ${theme.spacing.medium} 8px`};
   box-sizing: border-box;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   border: none;
   border-radius: 2px;
   background: ${({ theme }) => theme.color.white};
@@ -53,16 +53,26 @@ const SearchBar = styled.input`
   -moz-osx-font-smoothing: grayscale;
 `;
 
+const Row = ({ data, columnIndex, rowIndex, style }) => {
+  return (
+    <div style={style}>
+      <Pokemon
+        pokemon={data[columnIndex == 0 ? rowIndex * 2 : rowIndex * 2 + 1]}
+      />
+    </div>
+  );
+};
+
 const Display = (): ReactElement => {
   const [query, setQuery] = useState("");
-  const [items, setItems] = useState(ALL_POKEMON);
+  const [items, setItems] = useState(pokemonArray);
 
   useEffect(() => {
     const filterItems = searchParam => {
       if (!searchParam) {
-        setItems(ALL_POKEMON);
+        setItems(pokemonArray);
       }
-      const filtered = ALL_POKEMON.filter(pokemon =>
+      const filtered = pokemonArray.filter(pokemon =>
         pokemon.name.toLowerCase().includes(searchParam.toLowerCase())
       );
       setItems(filtered);
@@ -81,9 +91,17 @@ const Display = (): ReactElement => {
         />
       </SearchBarContainer>
       <PokemonContainer>
-        {items.map((item, index) => {
-          return <Pokemon key={index} pokemon={item} />;
-        })}
+        <FixedSizeGrid
+          columnCount={2}
+          columnWidth={370}
+          height={800}
+          rowCount={126}
+          rowHeight={270}
+          width={820}
+          itemData={pokemonArray}
+        >
+          {Row}
+        </FixedSizeGrid>
       </PokemonContainer>
     </Pokedex>
   );

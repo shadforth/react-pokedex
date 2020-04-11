@@ -7,11 +7,9 @@ import Type from "../Type";
 import { Modal, useModal } from "../Modal";
 
 const Container = styled.button`
-  width: 49%;
-  margin-bottom: ${({ theme }) => theme.spacing.medium};
+  width: 96%;
   border: none;
   border-radius: 2px;
-  box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.1);
   padding: ${({ theme }) =>
     `${theme.spacing.medium} ${theme.spacing.medium} ${theme.spacing.large}`};
   box-sizing: border-box;
