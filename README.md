@@ -6,6 +6,18 @@ The goal of this project is to build on my knowledge of React and focus on progr
 
 This is an extension on my previous [Vue Pokédex](https://github.com/shadforth/vue-pokedex), where the goal was to understand and use a JavaScript framework.
 
+<img src="screenshot.png" alt="React Pokédex">
+
+## Technology
+
+- React
+- Custom hooks
+- List virtualisation with `react-window`
+- Features of progressive web applications
+- TypeScript
+- Webpack
+- Docker
+
 ## Getting started
 
 ### Prerequisites
