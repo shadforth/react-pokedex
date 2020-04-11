@@ -2,7 +2,7 @@
 
 A Pokédex built with React.
 
-The goal of this project is to build on my knowledge of React, and learn more about Progressive Web Applications, performance, accessibility, and SEO.
+The goal of this project is to build on my knowledge of React and focus on progressive web applications, performance, accessibility, and SEO.
 
 This is an extension on my previous [Vue Pokédex](https://github.com/shadforth/vue-pokedex), where the goal was to understand and use a JavaScript framework.
 
@@ -12,7 +12,7 @@ This is an extension on my previous [Vue Pokédex](https://github.com/shadforth/
 
 If running the program with Docker, you will need to install:
 
-- [Docker](https://www.docker.com/)
+- [Docker](https://www.docker.com)
 
 If running the program on your local machine, you will need to install:
 
@@ -38,11 +38,3 @@ npm install
 # Start the application on localhost:3000
 npm run start
 ```
-
-## Deployment
-
-https://facebook.github.io/create-react-app/docs/deployment
-
-## Technical implementation
-
-To read about implementation details, see [IMPLEMENTATION.md](IMPLEMENTATION.md).

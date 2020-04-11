@@ -1,3 +1,0 @@
-#!/bin/bash -e
-
-"$(dirname "$0")/development-environment" npm run test
