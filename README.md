@@ -1,12 +1,12 @@
 # React Pokédex
 
+<img src="screenshot.png" alt="React Pokédex" align="right" width="450">
+
 A Pokédex built with React.
 
 The goal of this project is to build on my knowledge of React and focus on progressive web applications, performance, accessibility, and SEO.
 
 This is an extension on my previous [Vue Pokédex](https://github.com/shadforth/vue-pokedex), where the goal was to understand and use a JavaScript framework.
-
-<img src="screenshot.png" alt="React Pokédex">
 
 ## Technology
 
